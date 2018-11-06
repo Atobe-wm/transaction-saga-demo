@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.yanwu.demo.saga-client</groupId>
-    <artifactId>saga-client</artifactId>
+    <groupId>com.wm.saga</groupId>
+    <artifactId>saga-server2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>saga-client</name>
+    <name>saga-server2</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -65,7 +65,7 @@
             <groupId>org.apache.servicecomb</groupId>
             <artifactId>spring-boot-starter-provider</artifactId>
         </dependency>
-       <!-- <dependency>
+        <!--<dependency>
             <groupId>org.apache.servicecomb</groupId>
             <artifactId>handler-tracing-zipkin</artifactId>
         </dependency>-->
@@ -79,12 +79,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--pojo-->
         <dependency>
             <groupId>com.yanwu.demo.pojo</groupId>
             <artifactId>pojo</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
+        <!--swagger-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
@@ -137,16 +138,16 @@
             <artifactId>omega-spring-starter</artifactId>
             <version>${saga.version}</version>
         </dependency>
-        <!--<dependency>
-            <groupId>org.apache.servicecomb.saga</groupId>
-            <artifactId>omega-transport-resttemplate</artifactId>
-            <version>${saga.version}</version>
-        </dependency>-->
         <dependency>
             <groupId>org.apache.servicecomb.saga</groupId>
             <artifactId>omega-transport-servicecomb</artifactId>
             <version>${saga.version}</version>
         </dependency>
+        <!--<dependency>
+            <groupId>org.apache.servicecomb.saga</groupId>
+            <artifactId>omega-transport-resttemplate</artifactId>
+            <version>${saga.version}</version>
+        </dependency>-->
         <dependency>
             <groupId>org.apache.servicecomb.saga</groupId>
             <artifactId>omega-transport-feign</artifactId>
@@ -243,23 +244,29 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>1.3.2</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>${mySql.vsersion}</version>
-                    </dependency>
-                </dependencies>
                 <configuration>
                     <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.haier.hairy</groupId>
+                        <artifactId>mybatis-generator-core</artifactId>
+                        <version>1.0.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.yanwu.demo.pojo</groupId>
+                        <artifactId>pojo</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
