@@ -1,6 +1,9 @@
 package com.yanwu.demo.saga.client.controller;
 
 import com.yanwu.demo.pojo.pojo.DemoClientPojo;
+import com.yanwu.demo.pojo.pojo.DemoServerPojo;
+import com.yanwu.demo.saga.client.consumer.Saga1Consumer;
+import com.yanwu.demo.saga.client.consumer.Saga2Consumer;
 import com.yanwu.demo.saga.client.dao.model.DemoClient;
 import com.yanwu.demo.saga.client.dao.model.DemoClientEntity;
 import com.yanwu.demo.saga.client.service.SagaClientService;
@@ -25,7 +28,17 @@ public class SagaClientController {
 
     @Autowired
     private SagaClientService sagaClientService;
+    @Autowired
+    private Saga1Consumer saga1Consumer;
+    @Autowired
+    private Saga2Consumer saga2Consumer;
 
+    /**
+     * client 有数据库操作
+     * @param pojo
+     * @return
+     * @throws Exception
+     */
     @PostMapping(value = "/create")
     @SagaStart(timeout = 100000)
     public int create(@RequestBody DemoClientPojo pojo) throws Exception {
@@ -36,6 +49,23 @@ public class SagaClientController {
         int result = sagaClientService.create(demoClient);
         System.out.println("========== saga client demo create result ==========");
         return result;
+    }
+
+    /**
+     * client 无数据库操作
+     * @param pojo
+     * @return
+     * @throws Exception
+     */
+    @PostMapping(value = "/invoke")
+    @SagaStart(timeout = 100000)
+    public int invoke(@RequestBody DemoClientPojo pojo) throws Exception {
+        DemoServerPojo demoServerPojo = new DemoServerPojo();
+        demoServerPojo.setServerName(pojo.getClientName());
+        demoServerPojo.setServerPassword(pojo.getClientPassword());
+        saga1Consumer.sageServerCreate(demoServerPojo);
+        saga2Consumer.sageServerCreate(demoServerPojo);
+        return 0;
     }
 
 }

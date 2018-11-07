@@ -27,9 +27,6 @@ public class SagaServerController {
 
     @Autowired
     private SagaServerService sagaServerService;
-
-    @Autowired
-    private DemoServerMapper demoServerMapper;
     /**
      * 在转入事务中添加 @SagaStart 注解
      * @param pojo

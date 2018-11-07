@@ -3,19 +3,14 @@ package com.yanwu.demo.saga.client.service.impl;
 import com.yanwu.demo.pojo.pojo.DemoServerPojo;
 import com.yanwu.demo.saga.client.dao.mapper.DemoClientMapper;
 import com.yanwu.demo.saga.client.dao.model.DemoClient;
-import com.yanwu.demo.saga.client.dao.model.DemoClientEntity;
-import com.yanwu.demo.saga.client.consumer.SagaClientConsumer;
+import com.yanwu.demo.saga.client.consumer.Saga1Consumer;
 import com.yanwu.demo.saga.client.dao.model.DemoClientExample;
 import com.yanwu.demo.saga.client.service.SagaClientService;
-import org.apache.servicecomb.saga.omega.context.annotations.SagaStart;
 import org.apache.servicecomb.saga.omega.transaction.annotations.Compensable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.annotation.Resource;
 
 /**
  * @author XuBaofeng.
@@ -31,7 +26,7 @@ public class SagaClientServiceImpl implements SagaClientService {
     private DemoClientMapper demoClientMapper;
 
     @Autowired
-    private SagaClientConsumer sagaClientConsumer;
+    private Saga1Consumer saga1Consumer;
 
     /**
      * 该方法调用saga-server的create方法, 我们在saga-server的create方法中创建一个除零异常
@@ -57,7 +52,7 @@ public class SagaClientServiceImpl implements SagaClientService {
         DemoServerPojo serverPojo = new DemoServerPojo();
         serverPojo.setServerName(demoClient.getClientName());
         serverPojo.setServerPassword(demoClient.getClientPassword());
-        sagaClientConsumer.sageServerCreate(serverPojo);
+        saga1Consumer.sageServerCreate(serverPojo);
         return insert;
     }
 

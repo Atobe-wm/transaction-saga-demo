@@ -34,10 +34,10 @@ public class SagaServerServiceImpl implements SagaServerService {
     @Compensable(timeout = 200, compensationMethod = "createRollback")
     @Transactional(rollbackFor = Exception.class)
     public int create(DemoServer demoServer) throws Exception {
-        System.out.println("========== saga transaction test start ==========");
+        System.out.println("========== saga2 transaction test start ==========");
         int index = demoServerMapper.insert(demoServer);
         //index = 1 / 0;
-        System.out.println("========== saga transaction test end ==========");
+        System.out.println("========== saga2 transaction test end ==========");
         return index;
     }
 
@@ -48,7 +48,7 @@ public class SagaServerServiceImpl implements SagaServerService {
      * @return
      */
     public int createRollback(DemoServer demoServer) {
-        System.out.println("========== create server rollback ==========");
+        System.out.println("========== create server2 rollback ==========");
         DemoServerExample example = new DemoServerExample();
         DemoServerExample.Criteria criteria = example.createCriteria();
         criteria.andServerNameEqualTo(demoServer.getServerName());

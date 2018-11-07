@@ -18,15 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
  * description:
  */
 @RestController
-@RequestMapping(value = "server/saga/")
-@RestSchema(schemaId = "sagaServer")
+@RequestMapping(value = "server2/saga/")
+@RestSchema(schemaId = "sagaServer2")
 public class SagaServerController {
 
     @Autowired
     private SagaServerService sagaServerService;
 
-    @Autowired
-    private DemoServerMapper demoServerMapper;
     /**
      * 在转入事务中添加 @SagaStart 注解
      * @param pojo
@@ -35,12 +33,12 @@ public class SagaServerController {
      */
     @PostMapping(value = "/create")
     public int create(@RequestBody DemoServerPojo pojo) throws Exception {
-        System.out.println("========== saga server demo create pojo ==========");
+        System.out.println("========== saga server2 demo create pojo ==========");
         DemoServer demoServer = new DemoServer();
         demoServer.setServerName(pojo.getServerName());
         demoServer.setServerPassword(pojo.getServerPassword());
         int result = sagaServerService.create(demoServer);
-        System.out.println("========== saga server demo create result: " + result + " ==========");
+        System.out.println("========== saga server2 demo create result: " + result + " ==========");
         return result;
     }
 

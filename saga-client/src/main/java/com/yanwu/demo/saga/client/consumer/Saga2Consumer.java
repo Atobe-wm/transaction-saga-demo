@@ -2,8 +2,6 @@ package com.yanwu.demo.saga.client.consumer;
 
 import com.yanwu.demo.pojo.pojo.DemoServerPojo;
 import com.yanwu.demo.saga.client.dao.mapper.DemoClientMapper;
-import com.yanwu.demo.saga.client.dao.model.DemoClientExample;
-import org.apache.servicecomb.saga.omega.transaction.annotations.Compensable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -16,10 +14,7 @@ import org.springframework.web.client.RestTemplate;
  * description:
  */
 @Component
-public class SagaClientConsumer {
-
-    @Autowired
-    private DemoClientMapper demoClientMapper;
+public class Saga2Consumer {
 
     @Autowired
     private RestTemplate restTemplate;
@@ -34,7 +29,7 @@ public class SagaClientConsumer {
      */
     public int sageServerCreate(DemoServerPojo pojo) {
         System.out.println("========== sage server create ==========");
-        Integer index = restTemplate.postForObject("cse://saga-server/server/saga/create", pojo, Integer.class);
+        Integer index = restTemplate.postForObject("cse://saga-server2/server/saga/create", pojo, Integer.class);
         System.out.println("========== sage server create result: " + index + " ==========");
         return index;
     }
