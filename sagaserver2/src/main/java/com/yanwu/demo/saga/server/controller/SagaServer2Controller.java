@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
  * description:
  */
 @RestController
-@RequestMapping(value = "server2/saga/")
+@RequestMapping(value = "/server2/saga")
 @RestSchema(schemaId = "sagaServer2")
-public class SagaServerController {
+public class SagaServer2Controller {
 
     @Autowired
     private SagaServerService sagaServerService;

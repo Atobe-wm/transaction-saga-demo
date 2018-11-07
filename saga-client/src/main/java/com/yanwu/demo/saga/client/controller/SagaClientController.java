@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  * description:
  */
 @RestController
-@RequestMapping(value = "client/saga/")
+@RequestMapping(value = "/client/saga")
 @RestSchema(schemaId = "sagaClient")
 public class SagaClientController {
 

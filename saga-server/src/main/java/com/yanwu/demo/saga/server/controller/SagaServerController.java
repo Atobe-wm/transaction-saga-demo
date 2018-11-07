@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  * description:
  */
 @RestController
-@RequestMapping(value = "server/saga/")
+@RequestMapping(value = "/server/saga")
 @RestSchema(schemaId = "sagaServer")
 public class SagaServerController {
 

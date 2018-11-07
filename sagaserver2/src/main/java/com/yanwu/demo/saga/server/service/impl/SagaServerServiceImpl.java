@@ -32,7 +32,7 @@ public class SagaServerServiceImpl implements SagaServerService {
      */
     @Override
     @Compensable(timeout = 200, compensationMethod = "createRollback")
-    @Transactional(rollbackFor = Exception.class)
+    //@Transactional(rollbackFor = Exception.class)
     public int create(DemoServer demoServer) throws Exception {
         System.out.println("========== saga2 transaction test start ==========");
         int index = demoServerMapper.insert(demoServer);
