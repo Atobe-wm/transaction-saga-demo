@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yanwu.demo.saga.copy.dao.mapper.DemoServerMapper">
-  <resultMap id="BaseResultMap" type="com.yanwu.demo.saga.copy.dao.model.DemoServer">
+<mapper namespace="com.yanwu.demo.saga.server.dao.mapper.DemoServerMapper">
+  <resultMap id="BaseResultMap" type="com.yanwu.demo.saga.server.dao.model.DemoServer">
     <!--
     @mbggenerated
     -->
@@ -79,7 +79,7 @@
     -->
     server_id, server_name, server_password
   </sql>
-  <select id="selectByExample" parameterType="com.yanwu.demo.saga.copy.dao.model.DemoServerExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.yanwu.demo.saga.server.dao.model.DemoServerExample" resultMap="BaseResultMap">
     <!--
     @mbggenerated
     -->
@@ -112,7 +112,7 @@
     delete from demo_server
     where server_id = #{serverId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.yanwu.demo.saga.copy.dao.model.DemoServerExample">
+  <delete id="deleteByExample" parameterType="com.yanwu.demo.saga.server.dao.model.DemoServerExample">
     <!--
     @mbggenerated
     -->
@@ -121,14 +121,14 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyProperty="serverId" parameterType="com.yanwu.demo.saga.copy.dao.model.DemoServer" useGeneratedKeys="true">
+  <insert id="insert" keyProperty="serverId" parameterType="com.yanwu.demo.saga.server.dao.model.DemoServer" useGeneratedKeys="true">
     <!--
     @mbggenerated
     -->
     insert into demo_server (server_name, server_password)
     values (#{serverName,jdbcType=VARCHAR}, #{serverPassword,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyProperty="serverId" parameterType="com.yanwu.demo.saga.copy.dao.model.DemoServer" useGeneratedKeys="true">
+  <insert id="insertSelective" keyProperty="serverId" parameterType="com.yanwu.demo.saga.server.dao.model.DemoServer" useGeneratedKeys="true">
     <!--
     @mbggenerated
     -->
@@ -150,7 +150,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.yanwu.demo.saga.copy.dao.model.DemoServerExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.yanwu.demo.saga.server.dao.model.DemoServerExample" resultType="java.lang.Integer">
     <!--
     @mbggenerated
     -->
@@ -191,7 +191,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.yanwu.demo.saga.copy.dao.model.DemoServer">
+  <update id="updateByPrimaryKeySelective" parameterType="com.yanwu.demo.saga.server.dao.model.DemoServer">
     <!--
     @mbggenerated
     -->
@@ -206,7 +206,7 @@
     </set>
     where server_id = #{serverId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.yanwu.demo.saga.copy.dao.model.DemoServer">
+  <update id="updateByPrimaryKey" parameterType="com.yanwu.demo.saga.server.dao.model.DemoServer">
     <!--
     @mbggenerated
     -->

@@ -150,7 +150,7 @@
     </logger>
 
     <!--sagaClient服务-->
-    <logger name="com.yanwu.demo.saga.copy" level="INFO" additivity="false">
+    <logger name="com.yanwu.demo.saga.client" level="INFO" additivity="false">
         <appender-ref ref="sagaClientInfoAppender"/>
         <appender-ref ref="sagaClientErrorAppender"/>
         <appender-ref ref="STDOUT"/>

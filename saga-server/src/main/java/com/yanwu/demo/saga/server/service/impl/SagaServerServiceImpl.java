@@ -1,9 +1,9 @@
-package com.yanwu.demo.saga.copy.service.impl;
+package com.yanwu.demo.saga.server.service.impl;
 
-import com.yanwu.demo.saga.copy.dao.mapper.DemoServerMapper;
-import com.yanwu.demo.saga.copy.dao.model.DemoServer;
-import com.yanwu.demo.saga.copy.dao.model.DemoServerExample;
-import com.yanwu.demo.saga.copy.service.SagaServerService;
+import com.yanwu.demo.saga.server.dao.mapper.DemoServerMapper;
+import com.yanwu.demo.saga.server.dao.model.DemoServer;
+import com.yanwu.demo.saga.server.dao.model.DemoServerExample;
+import com.yanwu.demo.saga.server.service.SagaServerService;
 import org.apache.servicecomb.saga.omega.transaction.annotations.Compensable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
-package com.yanwu.demo.saga.copy.controller;
+package com.yanwu.demo.saga.server.controller;
 
 import com.yanwu.demo.pojo.pojo.DemoServerPojo;
-import com.yanwu.demo.saga.copy.dao.model.DemoServer;
-import com.yanwu.demo.saga.copy.service.SagaServerService;
+import com.yanwu.demo.saga.server.dao.model.DemoServer;
+import com.yanwu.demo.saga.server.service.SagaServerService;
 import org.apache.servicecomb.provider.rest.common.RestSchema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

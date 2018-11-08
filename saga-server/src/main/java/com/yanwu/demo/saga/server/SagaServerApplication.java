@@ -1,4 +1,4 @@
-package com.yanwu.demo.saga.copy;
+package com.yanwu.demo.saga.server;
 
 import org.apache.servicecomb.provider.springmvc.reference.RestTemplateBuilder;
 import org.apache.servicecomb.saga.omega.spring.EnableOmega;
@@ -22,7 +22,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @SpringBootApplication
 @EnableTransactionManagement
-@MapperScan(basePackages = {"com.yanwu.demo.saga.copy.dao.mapper"})
+@MapperScan(basePackages = {"com.yanwu.demo.saga.server.dao.mapper"})
 public class SagaServerApplication {
 
     public static void main(String[] args) {

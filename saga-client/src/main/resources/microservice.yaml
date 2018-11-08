@@ -2,7 +2,7 @@ scse-config-order: 100
 APPLICATION_ID: yanwu-development
 service_description:
   name: saga-client
-  version: 0.4.1
+  version: 0.4.2
   environment: development
 cse:
   service:

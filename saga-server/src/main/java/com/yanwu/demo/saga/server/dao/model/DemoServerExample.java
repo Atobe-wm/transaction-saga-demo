@@ -1,4 +1,4 @@
-package com.yanwu.demo.saga.copy.dao.model;
+package com.yanwu.demo.saga.server.dao.model;
 
 import java.util.ArrayList;
 import java.util.List;
