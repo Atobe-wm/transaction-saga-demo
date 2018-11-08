@@ -28,9 +28,9 @@ public class Saga2Consumer {
      * @return
      */
     public int sageServerCreate(DemoServerPojo pojo) {
-        System.out.println("========== sage server create ==========");
-        Integer index = restTemplate.postForObject("cse://saga-copy/server2/saga/create", pojo, Integer.class);
-        System.out.println("========== sage server create result: " + index + " ==========");
+        System.out.println("========== sage copy create ==========");
+        Integer index = restTemplate.postForObject("cse://saga-copy/copy/saga/create", pojo, Integer.class);
+        System.out.println("========== sage copy create result: " + index + " ==========");
         return index;
     }
 

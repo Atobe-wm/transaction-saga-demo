@@ -38,7 +38,7 @@
         </javaTypeResolver>
 
         <!-- 生成实体类地址 -->
-        <javaModelGenerator targetPackage="com.yanwu.demo.saga.server.dao.model"
+        <javaModelGenerator targetPackage="com.yanwu.demo.saga.copy.dao.model"
                             targetProject="${jdbc.project}">
             <!-- 是否在当前路径下新加一层schema,eg：fase路径cn.reqe.demo.pojo， true:cn.reqe.demo.pojo.[schemaName] -->
             <property name="enableSubPackages" value="false"/>
@@ -47,14 +47,14 @@
         </javaModelGenerator>
 
         <!-- 生成mapperxml映射文件 -->
-        <sqlMapGenerator targetPackage="com.yanwu.demo.saga.server.dao.mapper"
+        <sqlMapGenerator targetPackage="com.yanwu.demo.saga.copy.dao.mapper"
                          targetProject="${jdbc.project}">
             <!-- 是否在当前路径下新加一层schema,eg：fase路径mybatis.mappers， true:mybatis.mappers.[schemaName] -->
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
         <!-- 生成mapxml对应client，也就是接口dao -->
-        <javaClientGenerator targetPackage="com.yanwu.demo.saga.server.dao.mapper"
+        <javaClientGenerator targetPackage="com.yanwu.demo.saga.copy.dao.mapper"
                              targetProject="${jdbc.project}" type="XMLMAPPER">
             <!-- 是否在当前路径下新加一层schema,eg：fase路径cn.reqe.demo.mapper， true:cn.reqe.demo.mapper.[schemaName] -->
             <property name="enableSubPackages" value="false"/>

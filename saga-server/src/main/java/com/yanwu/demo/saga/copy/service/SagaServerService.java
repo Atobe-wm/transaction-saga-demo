@@ -1,6 +1,6 @@
-package com.yanwu.demo.saga.server.service;
+package com.yanwu.demo.saga.copy.service;
 
-import com.yanwu.demo.saga.server.dao.model.DemoServer;
+import com.yanwu.demo.saga.copy.dao.model.DemoServer;
 
 /**
  * @author XuBaofeng.

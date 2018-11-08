@@ -48,7 +48,7 @@ public class SagaClientServiceImpl implements SagaClientService {
     public int create(DemoClient demoClient) throws Exception {
         // ===== 保存saga-client entity
         int insert = demoClientMapper.insert(demoClient);
-        // ===== 通过微服务调用保存 saga-server entity
+        // ===== 通过微服务调用保存 saga-copy entity
         DemoServerPojo serverPojo = new DemoServerPojo();
         serverPojo.setServerName(demoClient.getClientName());
         serverPojo.setServerPassword(demoClient.getClientPassword());

@@ -63,7 +63,7 @@ public class SagaClientController {
         DemoServerPojo demoServerPojo = new DemoServerPojo();
         demoServerPojo.setServerName(pojo.getClientName());
         demoServerPojo.setServerPassword(pojo.getClientPassword());
-        saga1Consumer.sageServerCreate(demoServerPojo);
+       // saga1Consumer.sageServerCreate(demoServerPojo);
         saga2Consumer.sageServerCreate(demoServerPojo);
         return 0;
     }

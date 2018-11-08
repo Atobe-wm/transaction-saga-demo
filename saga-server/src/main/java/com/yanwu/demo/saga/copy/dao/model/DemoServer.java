@@ -1,4 +1,4 @@
-package com.yanwu.demo.saga.server.dao.model;
+package com.yanwu.demo.saga.copy.dao.model;
 
 import java.io.Serializable;
 

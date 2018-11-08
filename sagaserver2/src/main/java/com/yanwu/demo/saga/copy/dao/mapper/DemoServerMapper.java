@@ -1,7 +1,7 @@
-package com.yanwu.demo.saga.server.dao.mapper;
+package com.yanwu.demo.saga.copy.dao.mapper;
 
-import com.yanwu.demo.saga.server.dao.model.DemoServer;
-import com.yanwu.demo.saga.server.dao.model.DemoServerExample;
+import com.yanwu.demo.saga.copy.dao.model.DemoServer;
+import com.yanwu.demo.saga.copy.dao.model.DemoServerExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
