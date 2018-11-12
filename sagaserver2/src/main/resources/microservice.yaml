@@ -1,4 +1,4 @@
-scse-config-order: 100
+cse-config-order: 100
 APPLICATION_ID: yanwu-development
 service_description:
   name: saga-copy
@@ -11,7 +11,7 @@ cse:
       instance:
         watch: false
   rest:
-    address: 0.0.0.0:9991
+    address: 0.0.0.0:9997
     server:
       thread-count: 10
   uploads:

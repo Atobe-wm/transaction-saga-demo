@@ -32,6 +32,9 @@ public class SagaCopyController {
      */
     @PostMapping(value = "/create")
     public int create(@RequestBody DemoServerPojo pojo) throws Exception {
+        pojo=new DemoServerPojo();
+        pojo.setServerName("600");
+        pojo.setServerPassword("45464");
         System.out.println("========== saga server2 demo create pojo ==========");
         DemoServer demoServer = new DemoServer();
         demoServer.setServerName(pojo.getServerName());

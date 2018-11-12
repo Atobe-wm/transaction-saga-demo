@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @author XuBaofeng.
@@ -32,7 +33,8 @@ public class SagaClientController {
     private Saga1Consumer saga1Consumer;
     @Autowired
     private Saga2Consumer saga2Consumer;
-
+    @Autowired
+    private RestTemplate restTemplate;
     /**
      * client 有数据库操作
      * @param pojo
@@ -63,8 +65,9 @@ public class SagaClientController {
         DemoServerPojo demoServerPojo = new DemoServerPojo();
         demoServerPojo.setServerName(pojo.getClientName());
         demoServerPojo.setServerPassword(pojo.getClientPassword());
+        Integer index = restTemplate.postForObject("cse://saga-copy/copy/saga/create", pojo, Integer.class);
        // saga1Consumer.sageServerCreate(demoServerPojo);
-        saga2Consumer.sageServerCreate(demoServerPojo);
+        //saga2Consumer.sageServerCreate(demoServerPojo);
         return 0;
     }
 

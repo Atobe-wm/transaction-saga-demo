@@ -1,4 +1,4 @@
-scse-config-order: 100
+cse-config-order: 100
 APPLICATION_ID: yanwu-development
 service_description:
   name: saga-client

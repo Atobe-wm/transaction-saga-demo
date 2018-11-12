@@ -24,13 +24,15 @@ public class SagaServerController {
     @Autowired
     private SagaServerService sagaServerService;
     /**
-     * 在转入事务中添加 @SagaStart 注解
      * @param pojo
      * @return
      * @throws Exception
      */
     @PostMapping(value = "/create")
     public int create(@RequestBody DemoServerPojo pojo) throws Exception {
+        pojo=new DemoServerPojo();
+        pojo.setServerName("500");
+        pojo.setServerPassword("45464");
         System.out.println("========== saga copy demo create pojo ==========");
         DemoServer demoServer = new DemoServer();
         demoServer.setServerName(pojo.getServerName());
