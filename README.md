@@ -3,9 +3,7 @@
 #### 项目介绍
 基于service comb和saga实现的分布式事务
  
-
 #### 使用说明
-
 一:从GitHub上将saga的代码拉到本地
 https://github.com/apache/incubator-servicecomb-saga.git进入到对应目录中,将saga打入本地maven仓库
 1.构建可执行文件：
@@ -136,4 +134,6 @@ alpha:
 3.状态  UNKNOED
 补偿与业务匹配
 4.编译 alpha 失败
+ 
+
  
