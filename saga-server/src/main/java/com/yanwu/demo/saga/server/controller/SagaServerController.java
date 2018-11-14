@@ -34,7 +34,7 @@ public class SagaServerController {
         DemoServer demoServer = new DemoServer();
         demoServer.setServerName(pojo.getServerName());
         demoServer.setServerPassword(pojo.getServerPassword());
-        int result = sagaServerService.create("123");
+        int result = sagaServerService.create(demoServer);
         System.out.println("========== saga copy demo create result: " + result + " ==========");
         return new Integer(result);
     }

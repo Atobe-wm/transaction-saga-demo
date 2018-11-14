@@ -1,6 +1,7 @@
 package com.yanwu.demo.saga.server.service.impl;
 
 import com.yanwu.demo.saga.server.dao.mapper.DemoServerMapper;
+import com.yanwu.demo.saga.server.dao.model.DemoServer;
 import com.yanwu.demo.saga.server.service.SagaServerService;
 import org.apache.servicecomb.saga.omega.transaction.annotations.Compensable;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class SagaServerServiceImpl  implements SagaServerService{
     @Override
     @Compensable( compensationMethod = "createRollback")
     //@Transactional(rollbackFor = Exception.class)
-    public int create(String demoServer){
+    public int create(DemoServer demoServer){
         System.out.println("========== saga transaction test start =========="+demoServer);
        // int index = demoServerMapper.insert(demoServer);
         //index = 1 / 0;
@@ -44,7 +45,7 @@ public class SagaServerServiceImpl  implements SagaServerService{
      * @param demoServer
      * @return
      */
-    public int createRollback(String  demoServer) {
+    public int createRollback(DemoServer  demoServer) {
         System.out.println("========== create copy rollback ==========");
        /* DemoServerExample example = new DemoServerExample();
         DemoServerExample.Criteria criteria = example.createCriteria();

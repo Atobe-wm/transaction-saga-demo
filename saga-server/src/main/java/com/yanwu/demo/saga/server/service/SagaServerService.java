@@ -15,5 +15,5 @@ public interface SagaServerService {
      * @return
      * @throws Exception
      */
-    int create(String demoServer) throws Exception;
+    int create(DemoServer demoServer) throws Exception;
 }
