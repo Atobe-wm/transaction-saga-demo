@@ -2,9 +2,8 @@ package com.yanwu.demo.saga.client.dao.mapper;
 
 import com.yanwu.demo.saga.client.dao.model.DemoClient;
 import com.yanwu.demo.saga.client.dao.model.DemoClientExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface DemoClientMapper {
     /**

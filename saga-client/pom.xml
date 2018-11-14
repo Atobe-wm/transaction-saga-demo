@@ -61,47 +61,7 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.servicecomb</groupId>
-            <artifactId>spring-boot-starter-provider</artifactId>
-        </dependency>
-        <!-- <dependency>
-             <groupId>org.apache.servicecomb</groupId>
-             <artifactId>handler-tracing-zipkin</artifactId>
-         </dependency>-->
-        <dependency>
-            <groupId>com.huawei.paas.cse</groupId>
-            <artifactId>cse-solution-service-engine</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.yanwu.demo.pojo</groupId>
-            <artifactId>pojo</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-staticdocs</artifactId>
-            <version>${staticdocs.version}</version>
-            <scope>test</scope>
-        </dependency>
-
+        <!--spring boot 初始化配置-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -131,6 +91,52 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- <dependency>
+             <groupId>org.apache.servicecomb</groupId>
+             <artifactId>handler-tracing-zipkin</artifactId>
+         </dependency>-->
+        <!--数据字典依赖-->
+        <dependency>
+            <groupId>com.yanwu.demo.pojo</groupId>
+            <artifactId>pojo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.servicecomb</groupId>
+            <artifactId>spring-boot-starter-provider</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.huawei.paas.cse</groupId>
+            <artifactId>cse-solution-service-engine</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+       <!--swagger-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-staticdocs</artifactId>
+            <version>${staticdocs.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+
         <!--引入saga依赖-->
         <dependency>
             <groupId>org.apache.servicecomb.saga</groupId>
@@ -147,12 +153,11 @@
             <artifactId>omega-transport-servicecomb</artifactId>
             <version>${saga.version}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.apache.servicecomb.saga</groupId>
             <artifactId>omega-transport-feign</artifactId>
             <version>${saga.version}</version>
-        </dependency>
-
+        </dependency>-->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -161,7 +166,7 @@
 
         <!-- dao -->
         <!-- Mybatis依赖 -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.4.4</version>
@@ -170,14 +175,14 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>1.3.1</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator-core</artifactId>
             <version>1.3.2</version>
             <type>jar</type>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j-version}</version>
@@ -191,13 +196,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3-version}</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mySql.vsersion}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
@@ -206,9 +211,9 @@
             <groupId>org.activiti</groupId>
             <artifactId>activiti-engine</artifactId>
             <version>${activiti.version}</version>
-        </dependency>
+        </dependency>-->
         <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>4.3.16.RELEASE</version>
@@ -219,7 +224,7 @@
             <artifactId>swagger-annotations</artifactId>
             <version>1.5.13</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>
