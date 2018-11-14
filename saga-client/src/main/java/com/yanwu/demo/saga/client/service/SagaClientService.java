@@ -1,7 +1,6 @@
 package com.yanwu.demo.saga.client.service;
 
 import com.yanwu.demo.saga.client.dao.model.DemoClient;
-import com.yanwu.demo.saga.client.dao.model.DemoClientEntity;
 
 /**
  * @author XuBaofeng.

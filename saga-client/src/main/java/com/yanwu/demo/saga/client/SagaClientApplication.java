@@ -1,14 +1,10 @@
 package com.yanwu.demo.saga.client;
 
-import org.apache.servicecomb.provider.springmvc.reference.RestTemplateBuilder;
 import org.apache.servicecomb.saga.omega.spring.EnableOmega;
 import org.apache.servicecomb.springboot.starter.provider.EnableServiceComb;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.client.RestTemplate;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
@@ -17,21 +13,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * <p>
  * description:
  */
-@EnableOmega
-@EnableServiceComb
-@EnableSwagger2
 @SpringBootApplication
-@EnableTransactionManagement
+@EnableServiceComb
+@EnableOmega
+@EnableSwagger2
 @MapperScan(basePackages = {"com.yanwu.demo.saga.client.dao.mapper"})
 public class SagaClientApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SagaClientApplication.class, args);
-    }
-
-    @Bean
-    RestTemplate restTemplate() {
-        return RestTemplateBuilder.create();
     }
 
 }

@@ -7,9 +7,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.client.RestTemplate;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @author XuBaofeng.
@@ -17,11 +15,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * <p>
  * description:
  */
-@EnableOmega
-@EnableServiceComb
-@EnableSwagger2
 @SpringBootApplication
-@EnableTransactionManagement
+@EnableServiceComb
+@EnableOmega
 @MapperScan(basePackages = {"com.yanwu.demo.saga.server.dao.mapper"})
 public class SagaServerApplication {
 

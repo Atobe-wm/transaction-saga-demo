@@ -1,8 +1,6 @@
 package com.yanwu.demo.saga.server.service.impl;
 
 import com.yanwu.demo.saga.server.dao.mapper.DemoServerMapper;
-import com.yanwu.demo.saga.server.dao.model.DemoServer;
-import com.yanwu.demo.saga.server.dao.model.DemoServerExample;
 import com.yanwu.demo.saga.server.service.SagaServerService;
 import org.apache.servicecomb.saga.omega.transaction.annotations.Compensable;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,7 @@ import org.springframework.stereotype.Service;
  * description:
  */
 @Service
-public class SagaServerServiceImpl implements SagaServerService {
+public class SagaServerServiceImpl  implements SagaServerService{
 
     @Autowired
     private DemoServerMapper demoServerMapper;
@@ -30,14 +28,14 @@ public class SagaServerServiceImpl implements SagaServerService {
      * @throws Exception
      */
     @Override
-    @Compensable(timeout = 200, compensationMethod = "createRollback")
+    @Compensable( compensationMethod = "createRollback")
     //@Transactional(rollbackFor = Exception.class)
-    public int create(DemoServer demoServer) throws Exception {
-        System.out.println("========== saga transaction test start ==========");
-        int index = demoServerMapper.insert(demoServer);
-        index = 1 / 0;
+    public int create(String demoServer){
+        System.out.println("========== saga transaction test start =========="+demoServer);
+       // int index = demoServerMapper.insert(demoServer);
+        //index = 1 / 0;
         System.out.println("========== saga transaction test end ==========");
-        return index;
+        return 1;
     }
 
 
@@ -46,12 +44,14 @@ public class SagaServerServiceImpl implements SagaServerService {
      * @param demoServer
      * @return
      */
-    public int createRollback(DemoServer demoServer) {
+    public int createRollback(String  demoServer) {
         System.out.println("========== create copy rollback ==========");
-        DemoServerExample example = new DemoServerExample();
+       /* DemoServerExample example = new DemoServerExample();
         DemoServerExample.Criteria criteria = example.createCriteria();
         criteria.andServerNameEqualTo(demoServer.getServerName());
         criteria.andServerPasswordEqualTo(demoServer.getServerPassword());
-        return demoServerMapper.deleteByExample(example);
+        int i=demoServerMapper.deleteByExample(example);*/
+        System.out.println(demoServer);
+        return 1;
     }
 }

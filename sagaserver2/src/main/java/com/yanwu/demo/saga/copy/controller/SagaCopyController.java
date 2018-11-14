@@ -2,7 +2,7 @@ package com.yanwu.demo.saga.copy.controller;
 
 import com.yanwu.demo.pojo.pojo.DemoServerPojo;
 import com.yanwu.demo.saga.copy.dao.model.DemoServer;
-import com.yanwu.demo.saga.copy.service.SagaServerService;
+import com.yanwu.demo.saga.copy.service.impl.SagaServerServiceImpl;
 import org.apache.servicecomb.provider.rest.common.RestSchema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,19 +22,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class SagaCopyController {
 
     @Autowired
-    private SagaServerService sagaServerService;
+    private SagaServerServiceImpl sagaServerService;
 
     /**
-     * 在转入事务中添加 @SagaStart 注解
      * @param pojo
      * @return
      * @throws Exception
      */
     @PostMapping(value = "/create")
     public int create(@RequestBody DemoServerPojo pojo) throws Exception {
-        pojo=new DemoServerPojo();
-        pojo.setServerName("600");
-        pojo.setServerPassword("45464");
         System.out.println("========== saga server2 demo create pojo ==========");
         DemoServer demoServer = new DemoServer();
         demoServer.setServerName(pojo.getServerName());

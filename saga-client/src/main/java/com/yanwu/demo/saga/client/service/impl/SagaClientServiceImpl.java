@@ -1,9 +1,9 @@
 package com.yanwu.demo.saga.client.service.impl;
 
 import com.yanwu.demo.pojo.pojo.DemoServerPojo;
+import com.yanwu.demo.saga.client.consumer.Saga1Consumer;
 import com.yanwu.demo.saga.client.dao.mapper.DemoClientMapper;
 import com.yanwu.demo.saga.client.dao.model.DemoClient;
-import com.yanwu.demo.saga.client.consumer.Saga1Consumer;
 import com.yanwu.demo.saga.client.dao.model.DemoClientExample;
 import com.yanwu.demo.saga.client.service.SagaClientService;
 import org.apache.servicecomb.saga.omega.transaction.annotations.Compensable;
@@ -19,8 +19,7 @@ import org.springframework.stereotype.Service;
  * description:
  */
 @Service
-public class SagaClientServiceImpl implements SagaClientService {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SagaClientServiceImpl.class);
+public class SagaClientServiceImpl  implements SagaClientService{
 
     @Autowired
     private DemoClientMapper demoClientMapper;

@@ -1,4 +1,4 @@
-cse-config-order: 100
+scse-config-order: 100
 APPLICATION_ID: yanwu-development
 service_description:
   name: saga-client
@@ -17,9 +17,8 @@ cse:
   uploads:
     directory: tmp
 
-servicecomb:
   #Add Saga Handler
   handler:
     chain:
       Consumer:
-        cddefault: loadbalance,saga-consumer
+        default: loadbalance,saga-consumer

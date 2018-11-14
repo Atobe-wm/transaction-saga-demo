@@ -2,7 +2,7 @@ package com.yanwu.demo.saga.server.controller;
 
 import com.yanwu.demo.pojo.pojo.DemoServerPojo;
 import com.yanwu.demo.saga.server.dao.model.DemoServer;
-import com.yanwu.demo.saga.server.service.SagaServerService;
+import com.yanwu.demo.saga.server.service.impl.SagaServerServiceImpl;
 import org.apache.servicecomb.provider.rest.common.RestSchema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,24 +22,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class SagaServerController {
 
     @Autowired
-    private SagaServerService sagaServerService;
+    private SagaServerServiceImpl sagaServerService;
     /**
      * @param pojo
      * @return
      * @throws Exception
      */
     @PostMapping(value = "/create")
-    public int create(@RequestBody DemoServerPojo pojo) throws Exception {
-        pojo=new DemoServerPojo();
-        pojo.setServerName("500");
-        pojo.setServerPassword("45464");
-        System.out.println("========== saga copy demo create pojo ==========");
+    public Integer create(@RequestBody DemoServerPojo pojo) throws Exception {
+        System.out.println("========== saga copy demo create pojo =========="+pojo.getServerName());
         DemoServer demoServer = new DemoServer();
         demoServer.setServerName(pojo.getServerName());
         demoServer.setServerPassword(pojo.getServerPassword());
-        int result = sagaServerService.create(demoServer);
+        int result = sagaServerService.create("123");
         System.out.println("========== saga copy demo create result: " + result + " ==========");
-        return result;
+        return new Integer(result);
     }
 
 

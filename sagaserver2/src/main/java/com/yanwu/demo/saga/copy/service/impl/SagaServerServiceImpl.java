@@ -35,9 +35,9 @@ public class SagaServerServiceImpl implements SagaServerService {
     public int create(DemoServer demoServer) throws Exception {
         System.out.println("========== saga2 transaction test start ==========");
         int index = demoServerMapper.insert(demoServer);
-        //index = 1 / 0;
-        System.out.println("========== saga2 transaction test end ==========");
-        return index;
+        throw new IllegalArgumentException("can not order the peo large than 10  all Rollback");
+        //System.out.println("========== saga2 transaction test end ==========");
+        //return index;
     }
 
 
