@@ -7,10 +7,9 @@ import com.yanwu.demo.saga.client.dao.model.DemoClient;
 import com.yanwu.demo.saga.client.dao.model.DemoClientExample;
 import com.yanwu.demo.saga.client.service.SagaClientService;
 import org.apache.servicecomb.saga.omega.transaction.annotations.Compensable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author XuBaofeng.
@@ -42,7 +41,7 @@ public class SagaClientServiceImpl  implements SagaClientService{
      * @throws Exception
      */
     @Override
-//    @Transactional(rollbackFor = Exception.class)
+   @Transactional(rollbackFor = Exception.class)
     @Compensable(timeout = 800, compensationMethod = "createRollback")
     public int create(DemoClient demoClient) throws Exception {
         // ===== 保存saga-client entity

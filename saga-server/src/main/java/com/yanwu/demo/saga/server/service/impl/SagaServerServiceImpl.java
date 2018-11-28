@@ -2,10 +2,12 @@ package com.yanwu.demo.saga.server.service.impl;
 
 import com.yanwu.demo.saga.server.dao.mapper.DemoServerMapper;
 import com.yanwu.demo.saga.server.dao.model.DemoServer;
+import com.yanwu.demo.saga.server.dao.model.DemoServerExample;
 import com.yanwu.demo.saga.server.service.SagaServerService;
 import org.apache.servicecomb.saga.omega.transaction.annotations.Compensable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -30,13 +32,13 @@ public class SagaServerServiceImpl  implements SagaServerService{
      */
     @Override
     @Compensable( compensationMethod = "createRollback")
-    //@Transactional(rollbackFor = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public int create(DemoServer demoServer){
         System.out.println("========== saga transaction test start =========="+demoServer);
-       // int index = demoServerMapper.insert(demoServer);
+        int index = demoServerMapper.insert(demoServer);
         //index = 1 / 0;
         System.out.println("========== saga transaction test end ==========");
-        return 1;
+        return index;
     }
 
 
@@ -47,12 +49,11 @@ public class SagaServerServiceImpl  implements SagaServerService{
      */
     public int createRollback(DemoServer  demoServer) {
         System.out.println("========== create copy rollback ==========");
-       /* DemoServerExample example = new DemoServerExample();
+        DemoServerExample example = new DemoServerExample();
         DemoServerExample.Criteria criteria = example.createCriteria();
         criteria.andServerNameEqualTo(demoServer.getServerName());
         criteria.andServerPasswordEqualTo(demoServer.getServerPassword());
-        int i=demoServerMapper.deleteByExample(example);*/
-        System.out.println(demoServer);
-        return 1;
+        int i=demoServerMapper.deleteByExample(example);
+        return i;
     }
 }
